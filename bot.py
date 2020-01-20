@@ -1,9 +1,8 @@
 # -*- config: utf-8
-import config
 import telebot
 import markups as m
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot("995630658:AAF6W6Ksg6fOhd3Zi20McY2OHOekFpAKk9Y")
 
 @bot.message_handler(commands=['start', 'go'])
 def start_handler(message):
