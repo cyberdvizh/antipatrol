@@ -42,12 +42,26 @@ def send_welcome(message):
 	bot.reply_to(message, "Howdy, how are you doing?")
 
 @bot.message_handler(func=lambda message: True)
-def forward_message(message):
-    # forwardMessage
-    from_chat_id = message.chat.id
-    to_chat_id = 1001360951458
-    text = message
-    bot.forward_message(to_chat_id, from_chat_id, text)
+def record(message):
+    print('Чтобы прервать запись, набери q')
+    while True:
+        print('Потратил: ')
+        trata = message
+        if trata == 'q':
+            break
+        else:
+            records.append(int(trata))
+
+def summa():
+    zatratq = 0
+    for chisla in records:
+        zatratq = zatratq + chisla
+    print('Сегодня ты потратил ' + str(zatratq) + ' рублей.')
+
+records = []
+for chisla in records:
+    print(chisla)
+summa()
 
 bot.polling()
 
