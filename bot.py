@@ -15,13 +15,14 @@ def start_handler(message):
 def afterstart(message):
     chat_id = message.chat.id
     text = message.text
+    channel_id = 1001360951458
     if text == ("Нет."):
         global isRunning
         isRunning = False
         bot.send_message(chat_id, 'Если решитесь, нажмите /start', reply_markup=m.start_markup)
         bot.register_next_step_handler(message, start_handler)
     else:
-        bot.forward_message(int('1001360951458'), chat_id, text)
+        bot.forward_message(channel_id, chat_id, text)
         bot.send_message(message.chat.id, 'Принимаю местоположение')
         bot.register_next_step_handler(message, afterstart) #askSource
         bot.send_message(chat_id, "Хотите помочь еще?", reply_markup=m.vote_markup)
