@@ -1,5 +1,5 @@
 # -*- config: utf-8
-import telebot
+'''import telebot
 import markups as m
 bot = telebot.TeleBot("995630658:AAF6W6Ksg6fOhd3Zi20McY2OHOekFpAKk9Y")
 
@@ -31,4 +31,19 @@ def afterstart(message):
 
 isRunning = False
 
-bot.polling(none_stop=True)
+bot.polling(none_stop=True)'''
+
+import telebot
+
+bot = telebot.TeleBot("995630658:AAF6W6Ksg6fOhd3Zi20McY2OHOekFpAKk9Y")
+
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+	bot.reply_to(message, "Howdy, how are you doing?")
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+	bot.reply_to(message, message.text)
+
+bot.polling()
+
