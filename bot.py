@@ -41,7 +41,7 @@ bot = telebot.TeleBot("995630658:AAF6W6Ksg6fOhd3Zi20McY2OHOekFpAKk9Y")
 def send_welcome(message):
 	bot.reply_to(message, "Howdy, how are you doing?")
 
-@bot.message_handler(func=lambda message: True)
+@bot.message_handler(commands=['record'])
 def record(message):
     print('Чтобы прервать запись, набери q')
     while True:
