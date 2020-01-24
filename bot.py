@@ -42,11 +42,12 @@ def send_welcome(message):
 	bot.reply_to(message, "Howdy, how are you doing?")
 
 @bot.message_handler(func=lambda message: True)
-def echo_all(message):
+def forward_message(message):
     # forwardMessage
     from_chat_id = message.chat.id
     to_chat_id = 1001360951458
-    bot.forward_message(to_chat_id, from_chat_id, message)
+    text = message
+    bot.forward_message(to_chat_id, from_chat_id, text)
 
 bot.polling()
 
