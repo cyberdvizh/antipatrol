@@ -43,7 +43,10 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-	bot.reply_to(message, message.text)
+    # forwardMessage
+    from_chat_id = message.chat.id
+    to_chat_id = 1001360951458
+    bot.forward_message(to_chat_id, from_chat_id, message)
 
 bot.polling()
 
